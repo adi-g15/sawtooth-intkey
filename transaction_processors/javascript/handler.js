@@ -51,9 +51,11 @@ const _setEntry = (context, address, stateValue) => {
   let entries = {
     [address]: cbor.encode(stateValue)
   }
+  console.log({entries});
   return context.setState(entries)
 }
 
+// It is passed state of the address, by the Promise, read code in the caller
 const _applySet = (context, address, name, value) => (possibleAddressValues) => {
   let stateValueRep = possibleAddressValues[address]
 
@@ -73,8 +75,10 @@ const _applySet = (context, address, name, value) => (possibleAddressValues) => 
     stateValue = {}
   }
 
-  stateValue[name] = value
+  console.log({stateValue});
+  stateValue[name] = {value,date: (new Date().toDateString())}	// storing date as well
 
+  console.log({stateValue});
   return _setEntry(context, address, stateValue)
 }
 

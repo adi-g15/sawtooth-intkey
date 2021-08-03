@@ -223,7 +223,18 @@ impl<'a> IntkeyState<'a> {
             Some(m) => m.clone(),
             None => BTreeMap::new(),
         };
-        map.insert(Key::Text(Text::Text(String::from(name))), Value::U32(value));
+        // EDITED here: https://docs.rs/cbor-codec/0.7.0/cbor/value/enum.Value.html
+        use chrono::{offset::Utc,DateTime,TimeZone};
+        let mut value_map: BTreeMap<Key,Value> = BTreeMap::new();
+        value_map.insert(
+            Key::Text(Text::Text("value".to_string())),
+            Value::U32(value)
+            );
+        value_map.insert(
+            Key::Text(Text::Text("date".to_string())),
+            Value::Text(Text::Text(Utc::now().to_rfc2822()))
+            );
+        map.insert(Key::Text(Text::Text(String::from(name))), Value::Map(value_map));
 
         let mut e = GenericEncoder::new(Cursor::new(Vec::new()));
         e.value(&Value::Map(map))

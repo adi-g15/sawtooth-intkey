@@ -23,6 +23,7 @@ extern crate crypto;
 extern crate log;
 extern crate log4rs;
 extern crate sawtooth_sdk;
+extern crate chrono;
 
 mod handler;
 

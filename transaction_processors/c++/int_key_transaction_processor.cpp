@@ -172,7 +172,21 @@ class IntKeyApplicator:  public sawtooth::TransactionApplicator {
             }
         }
 
-        state_value_map[name] = value;
+	// EDITED here
+	time_t rawtime;
+  	struct tm * timeinfo;
+ 	char buffer[80];
+
+  	time (&rawtime);
+  	timeinfo = localtime(&rawtime);
+
+  	strftime(buffer,sizeof(buffer),"%d-%m-%Y %H:%M:%S",timeinfo);
+  	std::string date_str(buffer);
+        
+	state_value_map[name] = {
+		{std::string("value"), std::to_string(value)},
+		{std::string("date"), date_str}
+	};
 
         // encode the value map back to cbor for storage.
         std::vector<std::uint8_t> state_value_rep_vec = json::to_cbor(state_value_map);

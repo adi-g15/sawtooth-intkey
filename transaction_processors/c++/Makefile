@@ -1,0 +1,1 @@
+g++ -I../../../include -I/usr/include/sawtooth_sdk -std=c++11 -MD -MT CMakeFiles/intkey_tp_cxx.dir/int_key_transaction_processor.cpp.o -MF CMakeFiles/intkey_tp_cxx.dir/int_key_transaction_processor.cpp.o.d -o CMakeFiles/intkey_tp_cxx.dir/int_key_transaction_processor.cpp.o -c 

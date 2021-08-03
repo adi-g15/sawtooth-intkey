@@ -3,7 +3,7 @@
 	url = https://github.com/hyperledger/sawtooth-sdk-cxx
 [submodule "sawtooth-sdk-python"]
 	path = sawtooth-sdk-python
-	url = https://github.com/hyperledger/sawtooth-sdk-python
+	url = https://github.com/adi-g15/sawtooth-sdk-python
 [submodule "sawtooth-sdk-java"]
 	path = sawtooth-sdk-java
 	url = https://github.com/hyperledger/sawtooth-sdk-java
