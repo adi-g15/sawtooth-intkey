@@ -17,7 +17,7 @@ import sys
 import argparse
 import pkg_resources
 
-from sawtooth_intkey.processor.handler import IntkeyTransactionHandler
+from handler import IntkeyTransactionHandler
 
 from sawtooth_sdk.processor.core import TransactionProcessor
 from sawtooth_sdk.processor.log import init_console_logging
@@ -96,3 +96,5 @@ def main(args=None):
     finally:
         if processor is not None:
             processor.stop()
+
+main()

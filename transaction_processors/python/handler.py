@@ -17,7 +17,7 @@ import logging
 import hashlib
 
 import cbor
-
+import datetime
 
 from sawtooth_sdk.processor.handler import TransactionHandler
 from sawtooth_sdk.processor.exceptions import InvalidTransaction
@@ -174,7 +174,10 @@ def _do_set(name, value, state):
                 v=state[name]))
 
     updated = dict(state.items())
-    updated[name] = value
+    value_dict = {}
+    value_dict['value'] = value;
+    value_dict['date'] = datetime.datetime.now().strftime("%A, %d %b %Y");
+    updated[name] = value_dict;
 
     return updated
 
