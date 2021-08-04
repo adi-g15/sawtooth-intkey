@@ -20,3 +20,25 @@ python main.py -C tcp://localhost:4004
 
 > If faced some problem, create an issue in issues :D
 
+### Changes made
+> Can see with `diff` command too
+
+```diff
+diff --color sawtooth-sdk-python/examples/intkey_python/sawtooth_intkey/processor/handler.py transaction_processors/python/handler.py
+20c20
+< 
+---
+> import datetime
+177c177,180
+<     updated[name] = value
+---
+>     value_dict = {}
+>     value_dict['value'] = value;
+>     value_dict['date'] = datetime.datetime.now().strftime("%A, %d %b %Y");
+>     updated[name] = value_dict;
+diff --color sawtooth-sdk-python/examples/intkey_python/sawtooth_intkey/processor/main.py transaction_processors/python/main.py
+100d99
+< 
+Common subdirectories: sawtooth-sdk-python/examples/intkey_python/sawtooth_intkey/processor/__pycache__ and transaction_processors/python/__pycache__
+Only in transaction_processors/python: README.md
+```
