@@ -174,10 +174,10 @@ def _do_set(name, value, state):
                 v=state[name]))
 
     updated = dict(state.items())
-    value_dict = {}
-    value_dict['value'] = value;
-    value_dict['date'] = datetime.datetime.now().strftime("%A, %d %b %Y");
-    updated[name] = value_dict;
+    updated[name] = {
+        'value': value
+        'date': datetime.datetime.now().strftime("%A, %d %b %Y")
+    }
 
     return updated
 
