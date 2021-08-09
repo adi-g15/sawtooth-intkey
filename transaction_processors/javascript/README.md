@@ -3,8 +3,8 @@
 ### Install deps
 
 ```sh
-apt install libsecp256k1-dev -y
-yarn	# or npm install
+apt install libzmq3-dev protobuf-compiler libsecp256k1-dev -y
+npm install # Use Node v14
 ```
 
 ### Running the tp
